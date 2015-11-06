@@ -44,6 +44,31 @@ echo
 echo -e 'NOTE: At this point, this script has only been confirmed to work on Ubuntu variants.'
 echo
 
+echo -e '1. The script has been confirmed to work on Ubuntu variants, Mint, and Ubuntu Server.'
+echo -e '2. While several testing runs identified no known issues, '$CYAN'www.htpcBeginner.com'$ENDCOLOR' or the authors cannot be held accountable for any problems that might occur due to the script.'
+echo -e '3. If you did not run this script with sudo, you maybe asked for your root password during installation.'
+echo -e '4. By proceeding you authorize this script to install any relevant packages required to install and configure the selected packages.'
+echo -e '5. Best used on a clean system (with no previous selected package install) or after complete removal of previous selected package installation.'
+
+echo
+
+read -p 'Type y/Y and press [ENTER] to AGREE and continue with the installation or any other key to exit: '
+RESP=${REPLY,,}
+
+if [ "$RESP" != "y" ] 
+then
+	echo -e $RED'So you chickened out. May be you will try again later.'$ENDCOLOR
+	echo
+	pause 'Press [Enter] key to continue...'
+	exit 0
+fi
+
+#
+# Create a dialog for the control user
+# Source the user to all of the options
+#
+# user_input=$(dialog --title "Create Directory" --clear --inputbox "Enter the directory name:" 8 40)
+
 cmd=(dialog --backtitle "http://www.htpcBeginner.com" \
 	--title "AtoMiC ToolKit - HTPC / Home Server Setup Script" \
 	--separate-output --checklist "Use the UP/DOWN arrow keys to scroll. \n\

@@ -68,8 +68,4 @@ echo -e $YELLOW'--->Updating AtoMiC ToolKit...'$ENDCOLOR
 git fetch --all
 git reset --hard origin/dev
 
-echo
-pause 'Press [Enter] to restart and continue...'
-cd $SCRIPTPATH
-sudo ./setup.sh
 exit 0
